@@ -1,0 +1,100 @@
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 1fr);
+  gap: 48px;
+  align-items: center;
+  padding: 72px 0 48px;
+}
+
+.hero__content {
+  max-width: 640px;
+}
+
+.hero__eyebrow {
+  margin: 0 0 18px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(3rem, 5vw, 4.8rem);
+  line-height: 0.95;
+}
+
+.hero__role {
+  margin: 16px 0 20px;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.hero__intro {
+  color: var(--muted);
+  max-width: 34rem;
+  margin-bottom: 28px;
+  line-height: 1.85;
+}
+
+.hero__typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 22px;
+  border-radius: 24px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  margin-bottom: 32px;
+}
+
+.hero__typing span {
+  color: var(--muted);
+}
+
+.hero__typing strong {
+  color: var(--accent);
+}
+
+.hero__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.button--primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: white;
+}
+
+.button--secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+}
+
+.hero__visual {
+  display: flex;
+  justify-content: center;
+}
+
+.hero__frame {
+  width: min(100%, 360px);
+  padding: 22px;
+  border-radius: 38px;
+  background: linear-gradient(180deg, rgba(79, 141, 248, 0.24), rgba(255, 255, 255, 0.04));
+  box-shadow: var(--shadow);
+}
+
+.hero__frame img {
+  width: 100%;
+  border-radius: 28px;
+  object-fit: cover;
+}
+
+@media (max-width: 920px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}

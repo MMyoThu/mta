@@ -1,0 +1,112 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 0;
+  backdrop-filter: blur(16px);
+  background: rgba(11, 18, 32, 0.82);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navbar__mark {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  box-shadow: 0 0 20px rgba(79, 141, 248, 0.4);
+}
+
+.navbar__name {
+  margin: 0;
+  font-weight: 700;
+}
+
+.navbar__label {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navbar__nav a {
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.navbar__nav a:hover,
+.navbar__nav a:focus-visible {
+  color: var(--text);
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: var(--surface-strong);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  background: var(--surface);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 0.95rem 1.4rem;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.button--ghost {
+  background: rgba(79, 141, 248, 0.15);
+  color: var(--text);
+}
+
+.button--ghost:hover,
+.button--ghost:focus-visible {
+  transform: translateY(-1px);
+  background: rgba(79, 141, 248, 0.24);
+}
+
+@media (max-width: 880px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navbar__nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+}
