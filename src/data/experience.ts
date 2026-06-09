@@ -12,11 +12,11 @@ export const experience: ExperienceItem[] = [
     company: 'Enterprise Solutions',
     period: '2021 - Present',
     summary: [
-      'Built enterprise-grade web applications with Angular, Ionic, and Java Spring Boot.',
+      'Built enterprise-grade web applications with Angular, and Java Spring Boot.',
       'Designed REST APIs, microservices, and payment integration flows.',
       'Collaborated with teams to deploy solutions on Kubernetes and AWS.',
     ],
-    technologies: ['Angular', 'Ionic', 'Spring Boot', 'Kubernetes', 'AWS'],
+    technologies: ['Angular','React', 'Spring Boot', 'Kubernetes', 'AWS'],
   },
   {
     title: 'Full Stack Developer',

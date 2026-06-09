@@ -38,13 +38,8 @@ const Skills = () => {
             <div className="skills__list">
               {group.items.map((skill) => (
                 <div key={skill.name} className="skill-card">
-                  <div className="skill-card__range">
-                    <span>{skill.name}</span>
-                    <strong>{skill.level}%</strong>
-                  </div>
-                  <div className="skill-card__bar">
-                    <div className="skill-card__fill" style={{ width: `${skill.level}%` }} />
-                  </div>
+                  <span className="skill-card__level">{skill.level}%</span>
+                  <span className="skill-card__name">{skill.name}</span>
                 </div>
               ))}
             </div>

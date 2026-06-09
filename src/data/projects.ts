@@ -25,7 +25,7 @@ export const projects: Project[] = [
     description:
       'A secure digital wallet for transactions, balance insights, and fast account top-ups on mobile and web.',
     image: '/src/assets/images/project2.png',
-    tech: ['Ionic', 'Java', 'REST APIs', 'Kubernetes'],
+    tech: ['React', 'Java', 'REST APIs', 'Kubernetes'],
     demoUrl: '#contact',
     githubUrl: 'https://github.com',
   },

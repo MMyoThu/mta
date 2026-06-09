@@ -13,7 +13,7 @@ export const skills: SkillCategory[] = [
       { name: 'HTML5', level: 97 },
       { name: 'CSS3', level: 95 },
       { name: 'Bootstrap', level: 88 },
-      { name: 'Ionic Framework', level: 87 },
+      { name: 'React', level: 87 },
     ],
   },
   {
