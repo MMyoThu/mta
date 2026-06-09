@@ -67,6 +67,8 @@ const Skills = () => {
     }
   }, [])
 
+  const allSkills = skills.flatMap((group) => group.items)
+
   return (
     <section className="skills" id="skills">
       <div className="section-title">
@@ -78,24 +80,18 @@ const Skills = () => {
       </p>
 
       <div className="skills__grid">
-        {skills.map((group) => (
-          <div key={group.category} className={`skills__group ${visible ? 'visible' : ''}`}>
-            <h3>{group.category}</h3>
-            <div className="skills__list">
-              {group.items.map((skill) => (
-                <div key={skill.name} className="skill-card">
-                  <div className="skill-card__media">
-                    <img src={skillIcons[skill.name] ?? iconDefault} alt={`${skill.name} logo`} />
-                  </div>
-                  <div className="skill-card__content">
-                    <span className="skill-card__name">{skill.name}</span>
-                    <span className="skill-card__level">{skill.level}%</span>
-                  </div>
-                </div>
-              ))}
-            </div>
+        <div className={`skills__group ${visible ? 'visible' : ''}`}>
+          <div className="skills__list">
+            {allSkills.map((skill) => (
+              <div key={skill.name} className="skill-chip">
+                <span className="skill-chip__icon">
+                  <img src={skillIcons[skill.name] ?? iconDefault} alt={`${skill.name} icon`} />
+                </span>
+                <span className="skill-chip__name">{skill.name}</span>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </section>
   )

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import profileImage from '../../assets/images/profile.jpg'
+import cartoonImage from '../../assets/images/profilecartoon.png'
 import './Hero.css'
 
 const Hero = () => {
@@ -18,6 +19,8 @@ const Hero = () => {
   useEffect(() => {
     setTyped(titles[index])
   }, [index, titles])
+
+  const [isHovered, setIsHovered] = useState(false)
 
   return (
     <section className="hero" id="hero">
@@ -43,8 +46,18 @@ const Hero = () => {
       </div>
 
       <div className="hero__visual fade-up">
-        <div className="hero__frame">
-          <img src={profileImage} alt="Myo Thu Aung profile" />
+        <div
+          className="hero__frame"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <div className="hero__frame-inner">
+            <img
+              src={isHovered ? profileImage : cartoonImage}
+              alt={isHovered ? 'Myo Thu Aung profile' : 'Cartoon profile illustration'}
+            />
+          </div>
+          {/* <span className="hero__frame-hint">Hover to view real photo</span> */}
         </div>
       </div>
     </section>

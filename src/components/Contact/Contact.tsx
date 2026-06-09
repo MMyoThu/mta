@@ -54,11 +54,11 @@ const Contact = () => {
           <div className="contact__details">
             <div>
               <h3>Email</h3>
-              <p>myothuaung@example.com</p>
+              <p>myothuaung2001pk@gmail.com</p>
             </div>
             <div>
               <h3>Phone</h3>
-              <p>+95 9 1234 5678</p>
+              <p>+95 967569658</p>
             </div>
             <div>
               <h3>Location</h3>
@@ -66,7 +66,7 @@ const Contact = () => {
             </div>
             <div>
               <h3>LinkedIn</h3>
-              <p>linkedin.com/in/myothuaung</p>
+              <p>https://www.linkedin.com/in/myo-thu-aung-1830022ba/</p>
             </div>
             <div>
               <h3>GitHub</h3>

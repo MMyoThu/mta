@@ -1,13 +1,13 @@
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 1fr);
-  gap: 48px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 1fr);
+  gap: 30px;
   align-items: center;
-  padding: 72px 0 48px;
+  padding: 50px 0 50px;
 }
 
 .hero__content {
-  max-width: 640px;
+  max-width: 620px;
 }
 
 .hero__eyebrow {
@@ -75,21 +75,66 @@
 
 .hero__visual {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .hero__frame {
-  width: min(100%, 360px);
-  padding: 22px;
-  border-radius: 38px;
-  background: linear-gradient(180deg, rgba(79, 141, 248, 0.24), rgba(255, 255, 255, 0.04));
+  width: min(100%, 420px);
+  padding: 28px;
+  border-radius: 52px;
+  background: rgba(16, 30, 61, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.hero__frame:hover {
+  transform: translateY(-4px);
+}
+
+.hero__frame::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(79, 141, 248, 0.18);
+  filter: blur(22px);
+  pointer-events: none;
+}
+
+.hero__frame-inner {
+  border-radius: 42px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1));
 }
 
 .hero__frame img {
+  display: block;
   width: 100%;
-  border-radius: 28px;
+  height: auto;
   object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.hero__frame:hover img {
+  transform: scale(1.02);
+}
+
+.hero__frame-hint {
+  display: inline-flex;
+  margin-top: 18px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--muted);
+  font-size: 0.88rem;
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 920px) {
