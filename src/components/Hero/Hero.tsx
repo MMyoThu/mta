@@ -57,7 +57,7 @@ const Hero = () => {
               alt={isHovered ? 'Myo Thu Aung profile' : 'Cartoon profile illustration'}
             />
           </div>
-          {/* <span className="hero__frame-hint">Hover to view real photo</span> */}
+          <div className="hero__frame-hint">Web Developer At A Bank</div>
         </div>
       </div>
     </section>

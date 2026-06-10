@@ -41,9 +41,6 @@ const Projects = () => {
       <div className="projects__grid">
         {filteredProjects.map((project) => (
           <article key={project.id} className="project-card fade-up">
-            <div className="project-card__image">
-              <img src={project.image} alt={project.title} />
-            </div>
             <div className="project-card__body">
               <h3>{project.title}</h3>
               <p>{project.description}</p>
