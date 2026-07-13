@@ -25,7 +25,7 @@ const Hero = () => {
   return (
     <section className="hero" id="hero">
       <div className="hero__content fade-up">
-        <p className="hero__eyebrow">Full Stack Development</p>
+        {/* <p className="hero__eyebrow">Full Stack Development</p> */}
         <h1>Hi, I’m Myo Thu Aung</h1>
         <p className="hero__role">Full Stack Web Developer</p>
         <p className="hero__intro">

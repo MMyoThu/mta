@@ -8,13 +8,13 @@ const About = () => {
         <h2>About Me</h2>
       </div>
       <p className="section-subtitle">
-        I am a professional web developer with a strong problem-solving mindset who builds clean, user-friendly applications for enterprise and consumer products.
+        I am a professional web developer with a strong problem-solving mindset who builds clean, user-friendly applications for enterprise and e-wallet products.
       </p>
 
       <div className="about__grid fade-up">
         <div className="about__card">
           <h3>Experience</h3>
-          <p>5+ years of developing modern applications across web and mobile ecosystems.</p>
+          <p>3+ years of developing modern applications across web and mobile ecosystems.</p>
         </div>
         <div className="about__card">
           <h3>Mindset</h3>
