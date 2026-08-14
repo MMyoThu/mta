@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './Contact.css'
+import { submitContactMessage } from '../../services/api'
 
 import type { FormEvent } from 'react'
 
@@ -18,6 +19,8 @@ const Contact = () => {
   const [form, setForm] = useState<FormState>(initialForm)
   const [errors, setErrors] = useState<FormErrors>({})
   const [success, setSuccess] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const validate = () => {
     const newErrors: FormErrors = {}
@@ -29,15 +32,28 @@ const Contact = () => {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     if (!validate()) {
       setSuccess(false)
+      setSubmitError('')
       return
     }
 
-    setSuccess(true)
-    setForm(initialForm)
+    setIsSubmitting(true)
+    setSubmitError('')
+
+    try {
+      await submitContactMessage(form)
+      setSuccess(true)
+      setForm(initialForm)
+      setErrors({})
+    } catch (error) {
+      setSuccess(false)
+      setSubmitError(error instanceof Error ? error.message : 'Failed to send message. Please try again later.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -116,10 +132,11 @@ const Contact = () => {
               {errors.message && <span className="field-error">{errors.message}</span>}
             </label>
           </div>
-          <button type="submit" className="button button--primary">
-            Send Message
+          <button type="submit" className="button button--primary" disabled={isSubmitting}>
+            {isSubmitting ? 'Sending...' : 'Send Message'}
           </button>
           {success && <p className="form-success">Your message has been sent successfully.</p>}
+          {submitError && <p className="field-error">{submitError}</p>}
         </form>
       </div>
     </section>
