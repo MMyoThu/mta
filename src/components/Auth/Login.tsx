@@ -64,7 +64,7 @@ const Login = () => {
               type="text"
               value={form.username}
               onChange={(event) => setForm((prev) => ({ ...prev, username: event.target.value }))}
-              placeholder="myothuaung2001pk@gmail.com"
+              placeholder="mta@gmail.com"
               required
             />
           </label>
