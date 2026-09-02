@@ -8,7 +8,7 @@ import Navbar from './components/Navbar/Navbar'
 import Projects from './components/Projects/Projects'
 import Skills from './components/Skills/Skills'
 import Game from './components/Game/Game'
-import ImposterGame from './components/Imposter/ImposterGame'
+import MemoryGame from './components/Memory/MemoryGame'
 
 function App() {
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
@@ -36,14 +36,18 @@ function App() {
   }
 
   const isGameRoute = pathname === '/game' || pathname === '/game/'
-  const isImposterRoute = pathname === '/imposter' || pathname === '/imposter/'
+  const isMemoryRoute =
+    pathname === '/memory' ||
+    pathname === '/memory/' ||
+    pathname === '/imposter' ||
+    pathname === '/imposter/'
 
   return (
     <div className="app">
       <div className="app-atmosphere" aria-hidden="true" />
       <div className="app-shell">
-        {isImposterRoute ? (
-          <ImposterGame />
+        {isMemoryRoute ? (
+          <MemoryGame />
         ) : isGameRoute ? (
           <Game />
         ) : (

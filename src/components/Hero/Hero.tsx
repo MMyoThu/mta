@@ -4,7 +4,7 @@ import cartoonImage from '../../assets/images/profilecartoon.png'
 import './Hero.css'
 
 const Hero = () => {
-  const titles = useMemo(() => ['Java', 'Spring Boot', 'REST APIs', 'MyBatis', 'Angular', 'React', 'Docker'], [])
+  const titles = useMemo(() => ['Java', 'Spring Boot', 'REST APIs', 'Microservices', 'MyBatis', 'Angular', 'React', 'Docker', 'JPA', 'JavaScript', 'TypeScript', 'Bootstrap', 'Tailwind CSS', 'CI/CD', 'Jenkins'], [])
   const [titleIndex, setTitleIndex] = useState(0)
   const [typed, setTyped] = useState('')
   const [phase, setPhase] = useState<'typing' | 'holding' | 'deleting'>('typing')
@@ -69,7 +69,7 @@ const Hero = () => {
         <p className="hero__play">
           Or unwind with a game:
           <a href="/game">Tic-tac-toe</a>
-          <a href="/imposter">Imposter</a>
+          <a href="/memory">Stack Match</a>
         </p>
       </div>
 

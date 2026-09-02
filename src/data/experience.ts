@@ -18,7 +18,7 @@ export const experience: ExperienceItem[] = [
       'Designed and optimized backend services, database operations, and RabbitMQ-based asynchronous processing to improve system performance and reliability.',
       'Focused on backend development and production support, collaborating with cross-functional teams to deliver high-quality, business-critical banking solutions.',
     ],
-    technologies: ['Java', 'Spring Boot', 'REST APIs', 'MyBatis', 'RabbitMQ', 'MySQL'],
+    technologies: ['Java', 'Spring Boot', 'REST APIs', 'MyBatis', 'RabbitMQ', 'MySQL', 'PostgreSQL', 'Redis', 'Docker', 'Microservices', 'Nacos', 'CI/CD'],
   },
   {
     title: 'Full-Stack Developer',
@@ -30,7 +30,7 @@ export const experience: ExperienceItem[] = [
       'Customized and enhanced Mifos microfinance solutions by developing backend services and application features based on business requirements.',
       'Contributed to cloud deployment workflows and production support, monitoring and troubleshooting issues after major releases to keep applications stable.',
     ],
-    technologies: ['Java', 'Angular', 'Ionic', 'REST APIs', 'MySQL', 'Mifos'],
+    technologies: ['Java', 'Angular', 'Ionic', 'REST APIs', 'MySQL', 'Mifos', 'Docker', 'Blockchain', 'Jenkins'],
   },
   {
     title: 'Freelance Web Developer',
