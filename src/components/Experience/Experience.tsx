@@ -11,7 +11,7 @@ const Experience = () => {
         <h2>Experience</h2>
       </div>
       <p className="section-subtitle">
-        Banking systems, recycle-to-earn fintech, and freelance web work — from A Bank to Blue Stone Solution.
+        Banking systems, recycle-to-earn fintech, and freelance POS systems — from A Bank to Blue Stone Solution.
       </p>
 
       <div className="experience__timeline">

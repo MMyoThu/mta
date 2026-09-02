@@ -38,11 +38,11 @@ export const experience: ExperienceItem[] = [
     location: 'Yangon, Myanmar',
     period: '02/2022 – 11/2025',
     summary: [
-      'Developed responsive, user-friendly websites using JavaScript, Angular, and Java based on client requirements.',
-      'Implemented frontend features and integrated Java REST APIs to connect web interfaces with backend services.',
-      'Worked with clients to understand requirements, troubleshoot issues, and provide ongoing website maintenance and support.',
+      'Delivered multiple point-of-sale (POS) systems for retail shops, restaurants, pharmacies, and cafes using JavaScript, Angular, React, and Java.',
+      'Developed responsive cashier and admin screens, then integrated Java REST APIs for sales, inventory, receipts, and daily reports.',
+      'Worked with clients to gather requirements, train staff on POS workflows, and provide ongoing maintenance and support.',
     ],
-    technologies: ['JavaScript', 'Angular', 'Java', 'REST APIs'],
+    technologies: ['JavaScript', 'Angular', 'React', 'Java', 'REST APIs'],
   },
   {
     title: 'Java Developer Certificate',

@@ -6,7 +6,10 @@ const Projects = () => {
   const categories = useMemo(() => {
     const techs = new Set<string>()
     projects.forEach((project) => project.tech.forEach((tech) => techs.add(tech)))
-    return ['All', ...Array.from(techs).sort()]
+    const rest = Array.from(techs)
+      .filter((tech) => tech !== 'POS')
+      .sort()
+    return techs.has('POS') ? ['All', 'POS', ...rest] : ['All', ...rest]
   }, [])
 
   const [activeFilter, setActiveFilter] = useState('All')
@@ -24,8 +27,7 @@ const Projects = () => {
         <h2>Projects</h2>
       </div>
       <p className="section-subtitle">
-        Portfolio projects showcasing solutions built with modern stacks, cloud-ready deployments, and strong business
-        logic.
+        Banking and fintech products, plus freelance POS systems built with JavaScript, Angular, React, and Java.
       </p>
 
       <div className="projects__filters">
@@ -52,11 +54,6 @@ const Projects = () => {
                 {project.tech.map((tech) => (
                   <span key={tech}>{tech}</span>
                 ))}
-              </div>
-              <div className="project-card__actions">
-                <a href={project.githubUrl} className="button button--primary" target="_blank" rel="noreferrer">
-                  GitHub
-                </a>
               </div>
             </div>
           </article>

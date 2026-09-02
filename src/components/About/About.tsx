@@ -4,7 +4,7 @@ const highlights = [
   {
     index: '01',
     title: 'Experience',
-    body: 'Senior Java Developer at A Bank, previously Full-Stack Developer at Blue Stone Solution, with freelance web work across Java, Angular, and REST APIs.',
+    body: 'Senior Java Developer at A Bank, previously Full-Stack Developer at Blue Stone Solution, with freelance POS and web work across JavaScript, Angular, React, and Java.',
   },
   {
     index: '02',
