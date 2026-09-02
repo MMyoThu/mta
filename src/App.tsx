@@ -4,7 +4,6 @@ import Contact from './components/Contact/Contact'
 import Experience from './components/Experience/Experience'
 import Footer from './components/Footer/Footer'
 import Hero from './components/Hero/Hero'
-import Login from './components/Auth/Login'
 import Navbar from './components/Navbar/Navbar'
 import Projects from './components/Projects/Projects'
 import Skills from './components/Skills/Skills'
@@ -36,7 +35,6 @@ function App() {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
   }
 
-  const isLoginRoute = pathname === '/mtalogin' || pathname === '/mtalogin/'
   const isGameRoute = pathname === '/game' || pathname === '/game/'
   const isImposterRoute = pathname === '/imposter' || pathname === '/imposter/'
 
@@ -44,9 +42,7 @@ function App() {
     <div className="app">
       <div className="app-atmosphere" aria-hidden="true" />
       <div className="app-shell">
-        {isLoginRoute ? (
-          <Login />
-        ) : isImposterRoute ? (
+        {isImposterRoute ? (
           <ImposterGame />
         ) : isGameRoute ? (
           <Game />
