@@ -1,33 +1,51 @@
 import './About.css'
 
+const highlights = [
+  {
+    index: '01',
+    title: 'Experience',
+    body: 'Senior Java Developer at A Bank, previously Full-Stack Developer at Blue Stone Solution, with freelance web work across Java, Angular, and REST APIs.',
+  },
+  {
+    index: '02',
+    title: 'Specialization',
+    body: 'Backend services, API integrations, database optimization, RabbitMQ processing, and production support for banking and fintech systems.',
+  },
+  {
+    index: '03',
+    title: 'Education',
+    body: 'Bachelor of Computer Science from Computer University (Monywa) and Java Developer certification from Java Developer Class (JDC).',
+  },
+  {
+    index: '04',
+    title: 'Focus',
+    body: 'Clean, maintainable solutions for real-world problems, with a strong interest in fullstack development and DevOps.',
+  },
+]
+
 const About = () => {
   return (
     <section className="about" id="about">
-      <div className="section-title">
-        <span />
+      <div className="section-heading">
+        <p className="section-kicker">
+          <span>01</span> Introduction
+        </p>
         <h2>About Me</h2>
       </div>
       <p className="section-subtitle">
-        I am a professional web developer with a strong problem-solving mindset who builds clean, user-friendly applications for enterprise and e-wallet products.
+        Software developer specializing in Java backend and website development. Skilled in designing backend services,
+        developing API integrations, optimizing database operations, and troubleshooting production issues. Experienced
+        with React, JavaScript, TypeScript, Docker, Git, and cloud deployment.
       </p>
 
       <div className="about__grid fade-up">
-        <div className="about__card">
-          <h3>Experience</h3>
-          <p>3+ years of developing modern applications across web and mobile ecosystems.</p>
-        </div>
-        <div className="about__card">
-          <h3>Mindset</h3>
-          <p>Approach every project with curiosity, discipline, and attention to scalable architecture.</p>
-        </div>
-        <div className="about__card">
-          <h3>Learning</h3>
-          <p>Always exploring new frameworks, cloud capabilities, and automation tools to deliver fast value.</p>
-        </div>
-        <div className="about__card">
-          <h3>Focus</h3>
-          <p>Clean code, maintainable solutions, and intuitive user experiences are core priorities.</p>
-        </div>
+        {highlights.map((item) => (
+          <article key={item.title} className="about__card">
+            <span>{item.index}</span>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </article>
+        ))}
       </div>
     </section>
   )

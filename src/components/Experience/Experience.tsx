@@ -4,19 +4,29 @@ import './Experience.css'
 const Experience = () => {
   return (
     <section className="experience" id="experience">
-      <div className="section-title">
-        <span />
+      <div className="section-heading">
+        <p className="section-kicker">
+          <span>03</span> Timeline
+        </p>
         <h2>Experience</h2>
       </div>
+      <p className="section-subtitle">
+        Banking systems, recycle-to-earn fintech, and freelance web work — from A Bank to Blue Stone Solution.
+      </p>
+
       <div className="experience__timeline">
-        {experience.map((item) => (
-          <article key={item.title} className="experience__item fade-up">
+        {experience.map((item, index) => (
+          <article key={`${item.company}-${item.period}`} className="experience__item fade-up">
+            <span className="experience__index">{String(index + 1).padStart(2, '0')}</span>
             <div className="experience__header">
               <div>
                 <h3>{item.title}</h3>
-                <p className="experience__company">{item.company}</p>
+                <p className="experience__company">
+                  {item.company}
+                  {item.location ? ` · ${item.location}` : ''}
+                </p>
               </div>
-              <span>{item.period}</span>
+              <span className="experience__period">{item.period}</span>
             </div>
             <ul>
               {item.summary.map((line) => (

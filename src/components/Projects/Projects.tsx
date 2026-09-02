@@ -17,12 +17,15 @@ const Projects = () => {
 
   return (
     <section className="projects" id="projects">
-      <div className="section-title">
-        <span />
+      <div className="section-heading">
+        <p className="section-kicker">
+          <span>04</span> Selected work
+        </p>
         <h2>Projects</h2>
       </div>
       <p className="section-subtitle">
-        Portfolio projects showcasing solutions built with modern stacks, cloud-ready deployments, and strong business logic.
+        Portfolio projects showcasing solutions built with modern stacks, cloud-ready deployments, and strong business
+        logic.
       </p>
 
       <div className="projects__filters">
@@ -39,9 +42,10 @@ const Projects = () => {
       </div>
 
       <div className="projects__grid">
-        {filteredProjects.map((project) => (
+        {filteredProjects.map((project, index) => (
           <article key={project.id} className="project-card fade-up">
             <div className="project-card__body">
+              <span className="project-card__index">{String(index + 1).padStart(2, '0')}</span>
               <h3>{project.title}</h3>
               <p>{project.description}</p>
               <div className="project-card__tech">
@@ -50,10 +54,7 @@ const Projects = () => {
                 ))}
               </div>
               <div className="project-card__actions">
-                <a href={project.demoUrl} className="button button--primary" target="_blank" rel="noreferrer">
-                  Live Demo
-                </a>
-                <a href={project.githubUrl} className="button button--secondary" target="_blank" rel="noreferrer">
+                <a href={project.githubUrl} className="button button--primary" target="_blank" rel="noreferrer">
                   GitHub
                 </a>
               </div>

@@ -5,42 +5,51 @@ export type SkillCategory = {
 
 export const skills: SkillCategory[] = [
   {
-    category: 'Frontend',
+    category: 'Languages & Frontend',
     items: [
-      { name: 'Angular'},
-      { name: 'TypeScript' },
       { name: 'JavaScript' },
-      { name: 'Tailwind CSS'},
-      { name: 'Bootstrap'},
-      { name: 'React',},
+      { name: 'TypeScript' },
+      { name: 'SQL' },
+      { name: 'Angular' },
+      { name: 'React' },
+      { name: 'Ionic' },
     ],
   },
   {
     category: 'Backend',
     items: [
       { name: 'Java' },
-      { name: 'Spring Boot'},
-      { name: 'Microservices'},
+      { name: 'Spring Boot' },
+      { name: 'REST API' },
+      { name: 'MyBatis' },
+      { name: 'JPA / Hibernate' },
+      { name: 'Microservices' },
     ],
   },
   {
-    category: 'Database',
+    category: 'Data & Messaging',
     items: [
-      { name: 'MySQL'},
-      { name: 'PostgreSQL'},
+      { name: 'MySQL' },
+      { name: 'PostgreSQL' },
+      { name: 'Redis' },
+      { name: 'RabbitMQ' },
     ],
   },
   {
-    category: 'Tools & DevOps',
+    category: 'DevOps & Practices',
     items: [
-      { name: 'Git'},
-      { name: 'Docker'},
-      { name: 'Nacos'},
-      { name: 'AWS'},
-      { name: 'CI/CD'},
-      { name: 'Linux'},
-      { name: 'Kubernetes'},
-      { name: 'Jenkins'},
+      { name: 'Git' },
+      { name: 'Docker' },
+      { name: 'Flyway' },
+      { name: 'CI/CD' },
+      { name: 'Agile' },
+    ],
+  },
+  {
+    category: 'Languages',
+    items: [
+      { name: 'Burmese' },
+      { name: 'English' },
     ],
   },
 ]

@@ -3,54 +3,32 @@ export type Project = {
   title: string
   description: string
   tech: string[]
-  demoUrl: string
   githubUrl: string
 }
 
 export const projects: Project[] = [
   {
-    id: 'meeting-management',
-    title: 'Meeting Management System',
+    id: 'a-plus-wallet',
+    title: 'A Plus Wallet, Agent & Merchant',
     description:
-      'A scalable management platform for scheduling, tracking, and reporting meetings across enterprise teams.',
-    tech: ['Angular', 'Spring Boot', 'MySQL', 'AWS'],
-    demoUrl: '#contact',
-    githubUrl: 'https://github.com',
+      'Secure, scalable banking applications for A Bank covering customer wallet, agent, and merchant flows. Built backend services with Java, Spring Boot, REST APIs, and MyBatis, plus RabbitMQ-based async processing for production reliability.',
+    tech: ['Java', 'Spring Boot', 'REST API', 'MyBatis', 'RabbitMQ', 'MySQL'],
+    githubUrl: 'https://github.com/MMyoThu',
   },
   {
-    id: 'digital-wallet',
-    title: 'Digital Wallet Application',
+    id: 'r2e-crypto-wallet',
+    title: 'R2E Crypto Wallet & Portal',
     description:
-      'A secure digital wallet for transactions, balance insights, and fast account top-ups on mobile and web.',
-    tech: ['React', 'Java', 'REST APIs', 'Kubernetes'],
-    demoUrl: '#contact',
-    githubUrl: 'https://github.com',
+      'Recycle-to-Earn crypto wallet application and portal where users earn rewards for recycling. Built with Angular, Ionic, and Java, including REST APIs, business logic, and database operations for secure cryptocurrency transactions.',
+    tech: ['Java', 'Angular', 'Ionic', 'REST API', 'MySQL'],
+    githubUrl: 'https://github.com/MMyoThu',
   },
   {
-    id: 'mobile-banking',
-    title: 'Mobile Banking Platform',
+    id: 'mifos-microfinance',
+    title: 'Mifos Microfinance',
     description:
-      'A responsive mobile banking interface with account management, transfers, and financial analytics.',
-    tech: ['Angular', 'Spring Boot', 'PostgreSQL', 'Docker'],
-    demoUrl: '#contact',
-    githubUrl: 'https://github.com',
-  },
-  {
-    id: 'employee-management',
-    title: 'Employee Management System',
-    description:
-      'A comprehensive HR management solution with employee lifecycle tracking and performance dashboards.',
-    tech: ['Java', 'Spring Boot', 'Oracle', 'Microservices'],
-    demoUrl: '#contact',
-    githubUrl: 'https://github.com',
-  },
-  {
-    id: 'ecommerce-platform',
-    title: 'E-Commerce Platform',
-    description:
-      'A polished online shopping experience with catalog management, secure checkout, and responsive design.',
-    tech: ['Angular', 'Bootstrap', 'AWS', 'CI/CD'],
-    demoUrl: '#contact',
-    githubUrl: 'https://github.com',
+      'Customized and enhanced Mifos microfinance solutions by developing backend services and application features based on institutional requirements, supporting financial services for underserved communities.',
+    tech: ['Java', 'REST API', 'MySQL', 'Mifos', 'Hibernate'],
+    githubUrl: 'https://github.com/MMyoThu',
   },
 ]

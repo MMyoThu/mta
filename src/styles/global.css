@@ -6,14 +6,19 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 108px;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  background: radial-gradient(circle at top, rgba(79, 141, 248, 0.12), transparent 32%), var(--bg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  background: var(--bg);
   color: var(--text);
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background 0.35s ease, color 0.35s ease;
 }
 
 button,
@@ -42,16 +47,94 @@ img {
 button {
   border: none;
   cursor: pointer;
+  background: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
 }
 
 #root {
   min-height: 100vh;
 }
 
+.app {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+}
+
+.app-atmosphere {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+  background:
+    radial-gradient(1200px 700px at 8% -10%, var(--blob-a), transparent 58%),
+    radial-gradient(900px 600px at 100% 8%, var(--blob-b), transparent 52%),
+    radial-gradient(800px 500px at 70% 100%, var(--blob-c), transparent 55%),
+    var(--bg);
+}
+
+.app-atmosphere::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
 .app-shell {
-  max-width: 1320px;
+  width: min(1160px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 0 24px 48px;
+  padding: 0 0 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.section-heading {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.section-kicker {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.section-kicker span {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  background: var(--accent-soft);
+  letter-spacing: 0;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+}
+
+.section-heading h2,
+.section-title h2 {
+  margin: 0;
+  font-size: clamp(2.1rem, 3.4vw, 3.3rem);
 }
 
 .section-title {
@@ -61,33 +144,35 @@ button {
   margin-bottom: 18px;
 }
 
-.section-title h2 {
-  font-size: clamp(2rem, 2.2vw, 2.8rem);
-  margin: 0;
-}
-
 .section-title span {
-  display: inline-flex;
-  width: 12px;
-  height: 12px;
-  border-radius: 999px;
-  background: var(--accent);
+  display: none;
 }
 
 .section-subtitle {
   color: var(--muted);
-  max-width: 760px;
-  margin-top: 0.75rem;
+  max-width: 720px;
+  margin: 0;
   line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.surface-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
 }
 
 .fade-up {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.8s ease forwards;
+  animation: fadeUp 0.8s ease both;
 }
 
 @keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
@@ -96,6 +181,91 @@ button {
 
 @media (max-width: 768px) {
   .app-shell {
-    padding: 0 18px 36px;
+    width: min(1160px, calc(100% - 28px));
+    padding-bottom: 56px;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .fade-up,
+  .hero__orbit,
+  .hero__cursor,
+  .skills__group {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 0.92rem 1.4rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button--primary {
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: 0 12px 30px var(--accent-glow);
+}
+
+.button--primary:hover,
+.button--primary:focus-visible {
+  transform: translateY(-2px);
+  background: var(--accent-strong);
+}
+
+.button--secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+.button--secondary:hover,
+.button--secondary:focus-visible {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--border-strong));
+  background: var(--accent-soft);
+}
+
+.button--ghost {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+.button--ghost:hover,
+.button--ghost:focus-visible {
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.field-error {
+  color: var(--danger);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.form-success {
+  margin-top: 16px;
+  color: var(--success);
+}
+

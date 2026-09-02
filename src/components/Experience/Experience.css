@@ -1,18 +1,59 @@
 .experience {
-  padding: 72px 0;
+  padding: 88px 0 40px;
 }
 
 .experience__timeline {
   display: grid;
-  gap: 24px;
-  margin-top: 32px;
+  gap: 20px;
+  margin-top: 36px;
+  position: relative;
+  padding-left: 28px;
+}
+
+.experience__timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 12px;
+  bottom: 12px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent), color-mix(in srgb, var(--violet) 60%, transparent), transparent);
 }
 
 .experience__item {
+  position: relative;
   padding: 28px;
-  border-radius: 30px;
+  border-radius: 28px;
   background: var(--surface);
   border: 1px solid var(--border);
+  backdrop-filter: blur(16px);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.experience__item:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
+}
+
+.experience__item::before {
+  content: '';
+  position: absolute;
+  left: -27px;
+  top: 34px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 5px var(--accent-soft);
+}
+
+.experience__index {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
 }
 
 .experience__header {
@@ -20,16 +61,28 @@
   justify-content: space-between;
   gap: 24px;
   align-items: flex-start;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .experience__header h3 {
   margin: 0;
+  font-size: 1.4rem;
 }
 
 .experience__company {
-  margin: 6px 0 0;
+  margin: 8px 0 0;
   color: var(--muted);
+}
+
+.experience__period {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-strong);
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 600;
 }
 
 .experience__item ul {
@@ -37,6 +90,7 @@
   padding-left: 18px;
   color: var(--muted);
   line-height: 1.85;
+  list-style: disc;
 }
 
 .experience__item li {
@@ -46,13 +100,25 @@
 .experience__tech {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 
 .experience__tech span {
-  padding: 10px 14px;
+  padding: 8px 12px;
   border-radius: 999px;
-  background: var(--surface-soft);
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
   color: var(--text);
-  font-size: 0.92rem;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 720px) {
+  .experience {
+    padding-top: 64px;
+  }
+
+  .experience__header {
+    flex-direction: column;
+    gap: 12px;
+  }
 }

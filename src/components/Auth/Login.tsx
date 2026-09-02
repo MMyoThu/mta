@@ -53,6 +53,9 @@ const Login = () => {
     <section className="login" aria-labelledby="login-title">
       <div className="login__card">
         <div className="login__header">
+          <a href="/" className="button button--secondary">
+            Back to home
+          </a>
           <h2 id="login-title">Admin Login</h2>
           <p>Use your backend credentials to sign in.</p>
         </div>

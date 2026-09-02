@@ -1,53 +1,67 @@
 .login {
-  padding: 4rem 0;
+  min-height: calc(100vh - 80px);
+  display: grid;
+  place-items: center;
+  padding: 48px 0;
 }
 
 .login__card {
-  max-width: 480px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: min(100%, 460px);
+  padding: 36px 32px;
   border: 1px solid var(--border);
-  border-radius: 24px;
-  background: var(--surface-strong);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+  border-radius: 32px;
+  background: var(--surface);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+}
+
+.login__header .button {
+  margin-bottom: 22px;
 }
 
 .login__header h2 {
-  margin: 0 0 0.35rem;
+  margin: 0 0 8px;
+  font-size: 2rem;
 }
 
 .login__header p {
-  margin: 0 0 1.25rem;
+  margin: 0 0 24px;
   color: var(--muted);
 }
 
 .login__form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 16px;
 }
 
 .login__form label {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 8px;
   font-weight: 600;
 }
 
 .login__form input {
   width: 100%;
-  padding: 0.9rem 1rem;
+  padding: 14px 16px;
   border: 1px solid var(--border);
-  border-radius: 14px;
-  background: var(--surface);
+  border-radius: 16px;
+  background: var(--surface-strong);
   color: var(--text);
+  outline: none;
+}
+
+.login__form input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
 }
 
 .login__message {
-  margin-top: 1rem;
-  color: var(--accent-strong);
+  margin-top: 16px;
+  color: var(--accent);
 }
 
 .login__message--error {
-  color: #ef4444;
+  color: var(--danger);
 }
