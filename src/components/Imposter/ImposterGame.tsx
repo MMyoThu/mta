@@ -13,22 +13,12 @@ type Player = {
 
 type VoteMap = Record<number, number>
 
-type SubmittedVote = {
-  voterId: number
-  targetId: number
-}
-
 const DEFAULT_PLAYER_COUNT = 12
 const DEFAULT_IMPOSTER_COUNT = 2
 const DISCUSSION_SECONDS = 60
 const VOTING_SECONDS = 30
 
 const clampPlayers = (value: number) => Math.min(100, Math.max(5, value))
-
-const getDefaultImposterCount = (count: number) => {
-  const suggested = Math.max(1, Math.round(count / 6))
-  return Math.min(suggested, count - 1)
-}
 
 const getDefaultPlayerNames = (count: number) =>
   Array.from({ length: count }, (_, index) => `Player ${index + 1}`)
@@ -126,24 +116,6 @@ const ImposterGame = () => {
       ),
     [currentVoter, players],
   )
-
-  const resetSetup = () => {
-    const nextNames = makeUniqueNames(playerNames)
-    setPlayerNames(nextNames)
-    setPhase('SETUP')
-    setRound(1)
-    setRevealIndex(0)
-    setShowRole(false)
-    setDiscussionTimeLeft(DISCUSSION_SECONDS)
-    setVotingTimeLeft(VOTING_SECONDS)
-    setVotes({})
-    setVotingOrder([])
-    setCurrentVoterIndex(0)
-    setSelectedVoteTarget(null)
-    setLastEjected(null)
-    setWinner(null)
-    setRoundSummary('')
-  }
 
   const updatePlayerCount = (value: number) => {
     const nextCount = clampPlayers(value)
