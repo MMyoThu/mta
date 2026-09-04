@@ -50,6 +50,28 @@
     var(--surface);
 }
 
+.about__more {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.about__more-link {
+  color: var(--text);
+  font-weight: 600;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
+  padding-bottom: 1px;
+}
+
+.about__more-link:hover,
+.about__more-link:focus-visible {
+  color: var(--accent);
+}
+
 @media (max-width: 760px) {
   .about {
     padding-top: 64px;

@@ -23,6 +23,10 @@ const highlights = [
   },
 ]
 
+const extraPages = [
+  { href: '/hobbies', label: 'More' },
+]
+
 const About = () => {
   return (
     <section className="about" id="about">
@@ -47,6 +51,15 @@ const About = () => {
           </article>
         ))}
       </div>
+
+      <p className="about__more fade-up">
+        <span>Away from work</span>
+        {extraPages.map((page) => (
+          <a key={page.href} href={page.href} className="about__more-link">
+            {page.label}
+          </a>
+        ))}
+      </p>
     </section>
   )
 }

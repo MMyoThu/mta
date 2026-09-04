@@ -112,6 +112,10 @@
   font-size: 0.92rem;
 }
 
+.hero__play + .hero__play {
+  margin-top: 8px;
+}
+
 .hero__play a {
   color: var(--text);
   border-bottom: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
