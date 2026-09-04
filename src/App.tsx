@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { MotionConfig } from 'motion/react'
 import About from './components/About/About'
 import Contact from './components/Contact/Contact'
 import Experience from './components/Experience/Experience'
@@ -45,29 +46,31 @@ function App() {
   const isHobbiesRoute = pathname === '/hobbies' || pathname === '/hobbies/'
 
   return (
-    <div className="app">
-      <div className="app-atmosphere" aria-hidden="true" />
-      <div className="app-shell">
-        {isHobbiesRoute ? (
-          <Hobbies />
-        ) : isMemoryRoute ? (
-          <MemoryGame />
-        ) : isGameRoute ? (
-          <Game />
-        ) : (
-          <>
-            <Navbar theme={theme} onToggleTheme={toggleTheme} />
-            <Hero />
-            <About />
-            <Skills />
-            <Experience />
-            <Projects />
-            <Contact />
-            <Footer />
-          </>
-        )}
+    <MotionConfig reducedMotion="user">
+      <div className="app">
+        <div className="app-atmosphere" aria-hidden="true" />
+        <div className="app-shell">
+          {isHobbiesRoute ? (
+            <Hobbies />
+          ) : isMemoryRoute ? (
+            <MemoryGame />
+          ) : isGameRoute ? (
+            <Game />
+          ) : (
+            <>
+              <Navbar theme={theme} onToggleTheme={toggleTheme} />
+              <Hero />
+              <About />
+              <Skills />
+              <Experience />
+              <Projects />
+              <Contact />
+              <Footer />
+            </>
+          )}
+        </div>
       </div>
-    </div>
+    </MotionConfig>
   )
 }
 

@@ -17,6 +17,17 @@
   top: 12px;
   bottom: 12px;
   width: 1px;
+  opacity: 0.28;
+  background: linear-gradient(to bottom, var(--accent), color-mix(in srgb, var(--violet) 60%, transparent), transparent);
+}
+
+.experience__line {
+  position: absolute;
+  left: 5px;
+  top: 12px;
+  bottom: 12px;
+  width: 1px;
+  transform-origin: top center;
   background: linear-gradient(to bottom, var(--accent), color-mix(in srgb, var(--violet) 60%, transparent), transparent);
 }
 
@@ -27,16 +38,14 @@
   background: var(--surface);
   border: 1px solid var(--border);
   backdrop-filter: blur(16px);
-  transition: transform 0.25s ease, border-color 0.25s ease;
+  transition: border-color 0.25s ease;
 }
 
 .experience__item:hover {
-  transform: translateY(-3px);
   border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
 }
 
-.experience__item::before {
-  content: '';
+.experience__dot {
   position: absolute;
   left: -27px;
   top: 34px;

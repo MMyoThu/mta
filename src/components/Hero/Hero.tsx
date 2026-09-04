@@ -1,6 +1,15 @@
 import { useEffect, useMemo, useState } from 'react'
+import { motion } from 'motion/react'
 import profileImage from '../../assets/images/profile.jpg'
 import cartoonImage from '../../assets/images/profilecartoon.png'
+import {
+  fadeUp,
+  floatTransition,
+  gameCardHover,
+  hoverLift,
+  stagger,
+  tapPress,
+} from '../../motion/presets'
 import './Hero.css'
 
 const Hero = () => {
@@ -40,70 +49,82 @@ const Hero = () => {
 
   return (
     <section className="hero" id="hero">
-      <div className="hero__content fade-up">
-        <p className="hero__badge">Available for collaboration</p>
-        <p className="hero__eyebrow">Senior Java Developer</p>
-        <h1>
+      <motion.div className="hero__content" variants={stagger} initial="hidden" animate="visible">
+        <motion.p className="hero__badge" variants={fadeUp}>
+          Available for collaboration
+        </motion.p>
+        <motion.p className="hero__eyebrow" variants={fadeUp}>
+          Senior Java Developer
+        </motion.p>
+        <motion.h1 variants={fadeUp}>
           Building secure systems
           <span> with quiet confidence.</span>
-        </h1>
-        <p className="hero__intro">
+        </motion.h1>
+        <motion.p className="hero__intro" variants={fadeUp}>
           I’m Myo Thu Aung — a software developer specializing in Java backend and website development, with experience
           building secure, scalable applications using Java, Spring Boot, REST APIs, and relational databases.
-        </p>
-        <div className="hero__typing">
+        </motion.p>
+        <motion.div className="hero__typing" variants={fadeUp}>
           <span>Currently fluent in</span>
           <strong>
             {typed}
             <i className="hero__cursor" aria-hidden="true" />
           </strong>
-        </div>
-        <div className="hero__actions">
-          <a href="#projects" className="button button--primary">
+        </motion.div>
+        <motion.div className="hero__actions" variants={fadeUp}>
+          <motion.a href="#projects" className="button button--primary" whileHover={hoverLift} whileTap={tapPress}>
             View my work
-          </a>
-          <a href="#contact" className="button button--secondary">
+          </motion.a>
+          <motion.a href="#contact" className="button button--secondary" whileHover={hoverLift} whileTap={tapPress}>
             Get in touch
-          </a>
-        </div>
-        <p className="hero__play">
+          </motion.a>
+        </motion.div>
+        <motion.p className="hero__play" variants={fadeUp}>
           Or unwind with a game:
-          <a href="/game">Tic-tac-toe</a>
-          <a href="/memory">Stack Match</a>
-        </p>
-      </div>
+          <motion.a href="/game" whileHover={gameCardHover} whileTap={tapPress}>
+            Tic-tac-toe
+          </motion.a>
+          <motion.a href="/memory" whileHover={gameCardHover} whileTap={tapPress}>
+            Stack Match
+          </motion.a>
+        </motion.p>
+      </motion.div>
 
-      <div className="hero__visual fade-up">
-        <div
-          className="hero__frame"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          <div className="hero__orbit" aria-hidden="true" />
-          <div className="hero__frame-inner">
-            <img
-              src={isHovered ? profileImage : cartoonImage}
-              alt={isHovered ? 'Myo Thu Aung profile' : 'Cartoon profile illustration'}
-            />
-          </div>
-          <div className="hero__frame-hint">Hover to meet the real me</div>
-        </div>
+      <motion.div className="hero__visual" variants={stagger} initial="hidden" animate="visible">
+        <motion.div variants={fadeUp}>
+          <motion.div
+            className="hero__frame"
+            animate={{ y: [0, -7, 0] }}
+            transition={floatTransition}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <div className="hero__orbit" aria-hidden="true" />
+            <div className="hero__frame-inner">
+              <img
+                src={isHovered ? profileImage : cartoonImage}
+                alt={isHovered ? 'Myo Thu Aung profile' : 'Cartoon profile illustration'}
+              />
+            </div>
+            <div className="hero__frame-hint">Hover to meet the real me</div>
+          </motion.div>
+        </motion.div>
 
-        <div className="hero__stats">
-          <article>
+        <motion.div className="hero__stats" variants={stagger}>
+          <motion.article variants={fadeUp} whileHover={{ y: -3 }}>
             <strong>4+</strong>
             <span>Years building</span>
-          </article>
-          <article>
+          </motion.article>
+          <motion.article variants={fadeUp} whileHover={{ y: -3 }}>
             <strong>3</strong>
             <span>Banking products</span>
-          </article>
-          <article>
+          </motion.article>
+          <motion.article variants={fadeUp} whileHover={{ y: -3 }}>
             <strong>Full-stack</strong>
             <span>Java & Angular</span>
-          </article>
-        </div>
-      </div>
+          </motion.article>
+        </motion.div>
+      </motion.div>
     </section>
   )
 }

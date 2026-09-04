@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { motion } from 'motion/react'
 import { skills } from '../../data/skills'
 import iconAngular from '../../assets/icons/frontend/angular.jpg'
 import iconBootstrap from '../../assets/icons/frontend/bootstrap.jpg'
@@ -18,6 +18,8 @@ import iconKubernetes from '../../assets/icons/devops/kubernetes.jpg'
 import iconJenkins from '../../assets/icons/devops/jenkins.jpg'
 import iconLinux from '../../assets/icons/devops/linux.jpg'
 import iconGitHub from '../../assets/icons/github.svg'
+import SectionHeader from '../../motion/SectionHeader'
+import { cardHover, chipHover, fadeUp, stagger, viewportOnce } from '../../motion/presets'
 import './Skills.css'
 
 const skillIcons: Record<string, string> = {
@@ -57,43 +59,32 @@ const skillIcons: Record<string, string> = {
 }
 
 const Skills = () => {
-  const [visible, setVisible] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    const element = sectionRef.current
-    if (!element) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setVisible(true)
-      },
-      { threshold: 0.16 },
-    )
-
-    observer.observe(element)
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <section className="skills" id="skills" ref={sectionRef}>
-      <div className="section-heading">
-        <p className="section-kicker">
-          <span>02</span> Toolkit
-        </p>
-        <h2>Skills</h2>
-      </div>
-      <p className="section-subtitle">
-        I work across Java backend, websites, databases, and DevOps to deliver secure, maintainable applications.
-      </p>
+    <section className="skills" id="skills">
+      <SectionHeader
+        index="02"
+        kicker="Toolkit"
+        title="Skills"
+        subtitle="I work across Java backend, websites, databases, and DevOps to deliver secure, maintainable applications."
+      />
 
-      <div className={`skills__grid ${visible ? 'is-visible' : ''}`}>
+      <motion.div
+        className="skills__grid"
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+      >
         {skills.map((group) => (
-          <article key={group.category} className="skills__group">
+          <motion.article key={group.category} className="skills__group" variants={fadeUp} whileHover={cardHover}>
             <h3>{group.category}</h3>
             <div className="skills__list">
               {group.items.map((skill) => (
-                <div key={`${group.category}-${skill.name}`} className="skill-chip">
+                <motion.div
+                  key={`${group.category}-${skill.name}`}
+                  className="skill-chip"
+                  whileHover={chipHover}
+                >
                   <span className="skill-chip__icon">
                     {skillIcons[skill.name] ? (
                       <img src={skillIcons[skill.name]} alt="" />
@@ -102,12 +93,12 @@ const Skills = () => {
                     )}
                   </span>
                   <span className="skill-chip__name">{skill.name}</span>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </article>
+          </motion.article>
         ))}
-      </div>
+      </motion.div>
     </section>
   )
 }

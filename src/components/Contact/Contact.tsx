@@ -1,3 +1,6 @@
+import { motion } from 'motion/react'
+import SectionHeader from '../../motion/SectionHeader'
+import { cardHover, fadeUp, stagger, tapPress, viewportOnce } from '../../motion/presets'
 import './Contact.css'
 
 const channels = [
@@ -30,33 +33,48 @@ const channels = [
 const Contact = () => {
   return (
     <section className="contact" id="contact">
-      <div className="section-heading">
-        <p className="section-kicker">
-          <span>05</span> Let’s talk
-        </p>
-        <h2>Contact</h2>
-      </div>
-      <p className="section-subtitle">
-        Contact me directly on Gmail, Telegram, Facebook, or LinkedIn.
-      </p>
+      <SectionHeader
+        index="05"
+        kicker="Let’s talk"
+        title="Contact"
+        subtitle="Contact me directly on Gmail, Telegram, Facebook, or LinkedIn."
+      />
 
-      <div className="contact__channels fade-up">
+      <motion.div
+        className="contact__channels"
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+      >
         {channels.map((channel) => (
-          <a
+          <motion.a
             key={channel.name}
             className="contact-card"
             href={channel.href}
             target={channel.href.startsWith('mailto:') ? undefined : '_blank'}
             rel={channel.href.startsWith('mailto:') ? undefined : 'noreferrer'}
+            variants={fadeUp}
+            whileHover={cardHover}
+            whileTap={tapPress}
+            whileFocus={{ y: -3, scale: 1.01 }}
           >
             <span className="contact-card__name">{channel.name}</span>
             <strong>{channel.label}</strong>
             <span className="contact-card__hint">{channel.hint}</span>
-          </a>
+          </motion.a>
         ))}
-      </div>
+      </motion.div>
 
-      <p className="contact__meta">Yangon, Myanmar</p>
+      <motion.p
+        className="contact__meta"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+      >
+        Yangon, Myanmar
+      </motion.p>
     </section>
   )
 }

@@ -1,6 +1,8 @@
 import type { ReactElement } from 'react'
+import { motion } from 'motion/react'
 import { hobbies, interests, type Hobby } from '../../data/hobbies'
 import backImage from '../../assets/icons/about/backimg.jpg'
+import { cardHover, fadeUp, hoverLift, pageEnter, tapPress, viewportOnce } from '../../motion/presets'
 import './Hobbies.css'
 
 const icons: Record<string, ReactElement> = {
@@ -115,42 +117,63 @@ const icons: Record<string, ReactElement> = {
 }
 
 const HobbyRow = ({ hobby, index }: { hobby: Hobby; index: number }) => (
-  <article className="hobby-row">
+  <motion.article
+    className="hobby-row"
+    variants={fadeUp}
+    initial="hidden"
+    whileInView="visible"
+    viewport={viewportOnce}
+    whileHover={{ x: 4 }}
+  >
     <span className="hobby-row__index">{String(index + 1).padStart(2, '0')}</span>
-    <div className="hobby-row__icon">{icons[hobby.id]}</div>
+    <motion.div className="hobby-row__icon" whileHover={{ scale: 1.08, rotate: -4 }}>
+      {icons[hobby.id]}
+    </motion.div>
     <div className="hobby-row__body">
       <p className="hobby-row__tag">{hobby.tag}</p>
       <h3>{hobby.title}</h3>
       <p>{hobby.description}</p>
     </div>
-  </article>
+  </motion.article>
 )
 
 const Hobbies = () => {
   return (
-    <section className="hobbies-page">
+    <motion.section className="hobbies-page" variants={pageEnter} initial="hidden" animate="visible">
       <div className="hobbies-shell">
-        <div className="hobbies-header">
+        <motion.div className="hobbies-header" variants={fadeUp}>
           <div>
             <p className="hobbies-kicker">Off the clock</p>
             <h1>Hobbies & Interests</h1>
           </div>
-          <a href="/" className="button button--secondary">
+          <motion.a href="/" className="button button--secondary" whileHover={hoverLift} whileTap={tapPress}>
             Back to home
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
 
         <div className="hobbies-intro">
-          <div className="hobbies-intro__copy">
+          <motion.div
+            className="hobbies-intro__copy"
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+          >
             <p>
               Football, chinlone, a camera, and quiet water — plus the IT topics, trips, and match nights I keep
               learning from.
             </p>
             <p>Weekends away from the keyboard, still with the same kind of focus.</p>
-          </div>
-          <figure className="hobbies-portrait">
+          </motion.div>
+          <motion.figure
+            className="hobbies-portrait"
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            whileHover={{ scale: 1.03 }}
+            transition={{ duration: 0.35 }}
+          >
             <img src={backImage} alt="Looking out over a lake from a wooden deck" />
-          </figure>
+          </motion.figure>
         </div>
 
         <ol className="hobby-list">
@@ -162,19 +185,37 @@ const Hobbies = () => {
         </ol>
 
         <div className="hobbies-curious">
-          <p className="hobbies-curious__kicker">Currently curious about</p>
+          <motion.p
+            className="hobbies-curious__kicker"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+          >
+            Currently curious about
+          </motion.p>
           <div className="hobbies-curious__grid">
             {interests.map((interest) => (
-              <article key={interest.id} className="curious-item">
-                <span className="curious-item__icon">{icons[interest.id]}</span>
+              <motion.article
+                key={interest.id}
+                className="curious-item"
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportOnce}
+                whileHover={cardHover}
+              >
+                <motion.span className="curious-item__icon" whileHover={{ rotate: -8, scale: 1.08 }}>
+                  {icons[interest.id]}
+                </motion.span>
                 <h3>{interest.title}</h3>
                 <p>{interest.description}</p>
-              </article>
+              </motion.article>
             ))}
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

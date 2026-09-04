@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
+import { motion } from 'motion/react'
+import { hoverLift, pageEnter, tapPress } from '../../motion/presets'
 import './Game.css'
 
 type GameMode = 'solo' | 'duel' | 'team'
@@ -168,39 +170,41 @@ const Game = () => {
   }
 
   return (
-    <section className="game-page">
+    <motion.section className="game-page" variants={pageEnter} initial="hidden" animate="visible">
       <div className="game-shell">
-        <div className="game-header">
+        <motion.div className="game-header" variants={pageEnter}>
           <div>
             <p className="game-kicker">Competition Arena</p>
             <h1>Play a quick match</h1>
           </div>
-          <a href="/" className="button button--secondary">
+          <motion.a href="/" className="button button--secondary" whileHover={hoverLift} whileTap={tapPress}>
             Back to home
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
 
         <div className="game-panel">
           <div className="game-panel__header">
             <div className="game-modes" role="tablist" aria-label="Game modes">
               {(['solo', 'duel', 'team'] as GameMode[]).map((option) => (
-                <button
+                <motion.button
                   key={option}
                   type="button"
                   className={mode === option ? 'is-active' : ''}
                   onClick={() => changeMode(option)}
+                  whileHover={{ y: -1, scale: 1.03 }}
+                  whileTap={tapPress}
                 >
                   {modeLabel[option]}
-                </button>
+                </motion.button>
               ))}
             </div>
             <div className="game-actions">
-              <button type="button" className="button button--secondary" onClick={resetBoard}>
+              <motion.button type="button" className="button button--secondary" onClick={resetBoard} whileHover={hoverLift} whileTap={tapPress}>
                 New round
-              </button>
-              <button type="button" className="button button--primary" onClick={resetScore}>
+              </motion.button>
+              <motion.button type="button" className="button button--primary" onClick={resetScore} whileHover={hoverLift} whileTap={tapPress}>
                 Reset score
-              </button>
+              </motion.button>
             </div>
           </div>
 
@@ -241,7 +245,7 @@ const Game = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

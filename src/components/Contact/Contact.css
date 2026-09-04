@@ -17,12 +17,11 @@
   background: var(--surface);
   border: 1px solid var(--border);
   backdrop-filter: blur(16px);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .contact-card:hover,
 .contact-card:focus-visible {
-  transform: translateY(-4px);
   border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
   box-shadow: var(--shadow);
 }

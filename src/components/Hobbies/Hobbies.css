@@ -51,6 +51,8 @@
 
 .hobbies-portrait {
   margin: 0;
+  overflow: hidden;
+  border-radius: 22px;
 }
 
 .hobbies-portrait img {

@@ -117,6 +117,7 @@
 }
 
 .hero__play a {
+  display: inline-block;
   color: var(--text);
   border-bottom: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
   padding-bottom: 1px;

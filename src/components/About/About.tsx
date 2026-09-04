@@ -1,3 +1,6 @@
+import { motion } from 'motion/react'
+import SectionHeader from '../../motion/SectionHeader'
+import { cardHover, fadeUp, stagger, tapPress, viewportOnce } from '../../motion/presets'
 import './About.css'
 
 const highlights = [
@@ -30,36 +33,43 @@ const extraPages = [
 const About = () => {
   return (
     <section className="about" id="about">
-      <div className="section-heading">
-        <p className="section-kicker">
-          <span>01</span> Introduction
-        </p>
-        <h2>About Me</h2>
-      </div>
-      <p className="section-subtitle">
-        Software developer specializing in Java backend and website development. Skilled in designing backend services,
-        developing API integrations, optimizing database operations, and troubleshooting production issues. Experienced
-        with React, JavaScript, TypeScript, Docker, Git, and cloud deployment.
-      </p>
+      <SectionHeader
+        index="01"
+        kicker="Introduction"
+        title="About Me"
+        subtitle="Software developer specializing in Java backend and website development. Skilled in designing backend services, developing API integrations, optimizing database operations, and troubleshooting production issues. Experienced with React, JavaScript, TypeScript, Docker, Git, and cloud deployment."
+      />
 
-      <div className="about__grid fade-up">
+      <motion.div
+        className="about__grid"
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+      >
         {highlights.map((item) => (
-          <article key={item.title} className="about__card">
+          <motion.article key={item.title} className="about__card" variants={fadeUp} whileHover={cardHover} whileTap={tapPress}>
             <span>{item.index}</span>
             <h3>{item.title}</h3>
             <p>{item.body}</p>
-          </article>
+          </motion.article>
         ))}
-      </div>
+      </motion.div>
 
-      <p className="about__more fade-up">
+      <motion.p
+        className="about__more"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+      >
         <span>Away from work</span>
         {extraPages.map((page) => (
-          <a key={page.href} href={page.href} className="about__more-link">
+          <motion.a key={page.href} href={page.href} className="about__more-link" whileHover={{ y: -1 }} whileTap={tapPress}>
             {page.label}
-          </a>
+          </motion.a>
         ))}
-      </p>
+      </motion.p>
     </section>
   )
 }

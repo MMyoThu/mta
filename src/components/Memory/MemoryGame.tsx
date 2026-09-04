@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { motion } from 'motion/react'
+import { hoverLift, pageEnter, tapPress } from '../../motion/presets'
 import iconAngular from '../../assets/icons/frontend/angular.jpg'
 import iconJavascript from '../../assets/icons/frontend/javascript.jpg'
 import iconReact from '../../assets/icons/frontend/react.jpg'
@@ -202,35 +204,37 @@ const MemoryGame = () => {
         : 'Flip a card to start.'
 
   return (
-    <section className="memory-page">
+    <motion.section className="memory-page" variants={pageEnter} initial="hidden" animate="visible">
       <div className="memory-shell">
-        <div className="memory-header">
+        <motion.div className="memory-header" variants={pageEnter}>
           <div>
             <p className="memory-kicker">Memory Arena</p>
             <h1>Stack Match</h1>
           </div>
-          <a href="/" className="button button--secondary">
+          <motion.a href="/" className="button button--secondary" whileHover={hoverLift} whileTap={tapPress}>
             Back to home
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
 
         <div className="memory-panel">
           <div className="memory-panel__header">
             <div className="memory-modes" role="tablist" aria-label="Difficulty">
               {(['easy', 'medium', 'hard'] as Difficulty[]).map((option) => (
-                <button
+                <motion.button
                   key={option}
                   type="button"
                   className={difficulty === option ? 'is-active' : ''}
                   onClick={() => startNewGame(option)}
+                  whileHover={{ y: -1, scale: 1.03 }}
+                  whileTap={tapPress}
                 >
                   {option[0].toUpperCase() + option.slice(1)}
-                </button>
+                </motion.button>
               ))}
             </div>
-            <button type="button" className="button button--primary" onClick={() => startNewGame()}>
+            <motion.button type="button" className="button button--primary" onClick={() => startNewGame()} whileHover={hoverLift} whileTap={tapPress}>
               New game
-            </button>
+            </motion.button>
           </div>
 
           <div className="memory-stage">
@@ -291,15 +295,15 @@ const MemoryGame = () => {
                 <p>
                   {pairCount} pairs in {moves} moves · {formatTime(elapsed)}
                 </p>
-                <button type="button" className="button button--primary" onClick={() => startNewGame()}>
+                <motion.button type="button" className="button button--primary" onClick={() => startNewGame()} whileHover={hoverLift} whileTap={tapPress}>
                   Play again
-                </button>
+                </motion.button>
               </div>
             )}
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

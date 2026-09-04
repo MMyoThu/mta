@@ -1,22 +1,46 @@
+import { motion } from 'motion/react'
 import { experience } from '../../data/experience'
+import SectionHeader from '../../motion/SectionHeader'
+import { cardHover, fadeUp, motionEase, viewportOnce } from '../../motion/presets'
 import './Experience.css'
 
 const Experience = () => {
   return (
     <section className="experience" id="experience">
-      <div className="section-heading">
-        <p className="section-kicker">
-          <span>03</span> Timeline
-        </p>
-        <h2>Experience</h2>
-      </div>
-      <p className="section-subtitle">
-        Banking systems, recycle-to-earn fintech, and freelance POS systems — from A Bank to Blue Stone Solution.
-      </p>
+      <SectionHeader
+        index="03"
+        kicker="Timeline"
+        title="Experience"
+        subtitle="Banking systems, recycle-to-earn fintech, and freelance POS systems — from A Bank to Blue Stone Solution."
+      />
 
       <div className="experience__timeline">
+        <motion.span
+          className="experience__line"
+          aria-hidden="true"
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={viewportOnce}
+          transition={{ duration: 0.9, ease: motionEase }}
+        />
         {experience.map((item, index) => (
-          <article key={`${item.company}-${item.period}`} className="experience__item fade-up">
+          <motion.article
+            key={`${item.company}-${item.period}`}
+            className="experience__item"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.28 }}
+            whileHover={cardHover}
+          >
+            <motion.span
+              className="experience__dot"
+              aria-hidden="true"
+              initial={{ scale: 0, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ type: 'spring', stiffness: 320, damping: 18, delay: 0.08 }}
+            />
             <span className="experience__index">{String(index + 1).padStart(2, '0')}</span>
             <div className="experience__header">
               <div>
@@ -38,7 +62,7 @@ const Experience = () => {
                 <span key={tech}>{tech}</span>
               ))}
             </div>
-          </article>
+          </motion.article>
         ))}
       </div>
     </section>
